@@ -2,7 +2,7 @@
 
 ## Drivers API
 -----------
-# Adding driver -
+#### Adding driver -
 Issue POST request to http://ADDRESS:8080/api/driver/
 The following structure is used
 type Driver {
@@ -14,12 +14,12 @@ type Driver {
 example:
 {""id":33, name": "test", "license_number":"test" }
 
-# Retrieving driver - 
+#### Retrieving driver - 
 issue GET request with the id parameter
 http://ADDRESS:8080/api/driver/:id
 
 
-# Deleting driver-
+#### Deleting driver-
 issue DELETE request with the id parameter
 http://ADDRESS:8080/api/driver/:id
 
@@ -29,7 +29,7 @@ http://ADDRESS:8080/api/driver/:id
 
 Issue api calls to http://ADDRESS:8080/api/metric/
 
-# Adding metric
+#### Adding metric
 Issur POST request using the following structure (json) -
 ```
 Metric {
@@ -45,8 +45,8 @@ Example:
 {"metric_name": "test3", "driver_id":"3", "value":"5", "lon":0, "lat":5555,"timestamp":1352289170}
 
 
-## Deleting metrics - all matching metrics will be deleted.
-## Getting metrics (PUT - all matching metrics will be retrieved
+#### Deleting metrics - all matching metrics will be deleted.
+#### Getting metrics (PUT - all matching metrics will be retrieved
 Note-  GET request body isn't read, please use PUT to issue actually GET (according to
 documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
 is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.

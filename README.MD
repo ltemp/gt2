@@ -62,12 +62,13 @@ MetricQueryInfo  {
 }
 ```
 
-### Note-  GET request body isn't read, please use PUT to issue actually GET (according to
-### documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
-### is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
 
-### PUT(GET) - all matching metrics will be retrieved
-##DELETE - all matching metrics will be deleted.
+## DELETE - all matching metrics will be deleted.
+### GET(PUT - all matching metrics will be retrieved
+Note-  GET request body isn't read, please use PUT to issue actually GET (according to
+documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
+is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
+
 
 Example queries -
 {"metric_names": ["network.reception_strength", "gps.location_lost"], "driver_ids":["2","3"]}

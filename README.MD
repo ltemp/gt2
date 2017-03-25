@@ -46,9 +46,9 @@ Example:
 
 
 #### Deleting metrics - all matching metrics will be deleted.
-#### Getting metrics (PUT - all matching metrics will be retrieved
-Note-  GET request body isn't read, please use PUT to issue actually GET (according to
-documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
+#### Getting metrics (PUT) - all matching metrics will be retrieved
+Note-  GET request body isn't read, please use PUT to issue actually GET (according to beego
+documentation setting copyrequestbody = true in the conf should've fixed it. Content-Length in the request
 is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
 
 For the following requests use the following strcture (json)

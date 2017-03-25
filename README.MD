@@ -1,6 +1,6 @@
-Golgang sample project
+# Golgang sample project
 
-Drivers API
+## Drivers API
 -----------
 Issue api calls to http://ADDRESS:8080/api/driver/
 
@@ -15,22 +15,24 @@ type Driver {
 example:
 {""id":33, name": "test", "license_number":"test" }
 
-GET- issue GET request to
+Retrieve driver info - 
+issue GET request with the id parameter
 http://ADDRESS:8080/api/driver/:id
 
 
-DELETE - issue request to
+DELETE driver-
+issue DELETE request with the id parameter
 http://ADDRESS:8080/api/driver/:id
 
 
-Metrics API
+## Metrics API
 -----------
 
 Issue api calls to http://ADDRESS:8080/api/metric/
 
-INSERT - POST
+### INSERT - POST
 Issur POST request using the following structure (json) -
-
+```
 Metric {
 	metric_name string
 	driver_id   string
@@ -38,6 +40,7 @@ Metric {
 	lon, lat    float64
 	timestamp   int64
 }
+```
 
 Example:
 {"metric_name": "test3", "driver_id":"3", "value":"5", "lon":0, "lat":5555,"timestamp":1352289170}
@@ -45,8 +48,8 @@ Example:
 
 For the following requests use the following object (json)
 
-
-MetricQueryInfo struct {
+```
+MetricQueryInfo  {
 	metric_names  []string
 	driver_ids    []string
 	value         string
@@ -57,14 +60,14 @@ MetricQueryInfo struct {
 	min_timestamp string
 	max_timestamp string
 }
+```
 
+### Note-  GET request body isn't read, please use PUT to issue actually GET (according to
+### documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
+### is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
 
-Note-  GET request body isn't read, please use PUT to issue actually GET (according to
-documentation setting copyrequestbody = true in the conf should fixed it. Content-Length in the request
-is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
-
-PUT(GET) - all matching metrics will be retrieved
-DELETE - all matching metrics will be deleted.
+### PUT(GET) - all matching metrics will be retrieved
+###DELETE - all matching metrics will be deleted.
 
 Example queries -
 {"metric_names": ["network.reception_strength", "gps.location_lost"], "driver_ids":["2","3"]}

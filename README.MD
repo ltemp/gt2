@@ -67,10 +67,12 @@ MetricQueryInfo  {
 ### is as expected but the content isn't read when accessing u.Ctx.Input.RequestBody) - Please use PUT in the meanwhile.
 
 ### PUT(GET) - all matching metrics will be retrieved
-###DELETE - all matching metrics will be deleted.
+##DELETE - all matching metrics will be deleted.
 
 Example queries -
 {"metric_names": ["network.reception_strength", "gps.location_lost"], "driver_ids":["2","3"]}
+
+all metrics with one of "network.reception_strength" and "gps.location_lost" names for drivers 2/3 will be retrieved.
 
 
 

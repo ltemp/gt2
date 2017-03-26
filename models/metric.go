@@ -50,6 +50,8 @@ func LoadMetrics(info MetricQueryInfo) (error, []Metric) {
 	var query bytes.Buffer
 	query.WriteString("SELECT * FROM metric WHERE ")
 	buildMetricsInfoConditions(info, &query)
+	// TODO: Need to first select here the count, if the size of the result is too big
+	// then return a error.
 	rows, err := DBCon.Query(query.String())
 	fmt.Print(query.String())
 	if err != nil {

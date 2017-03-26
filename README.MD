@@ -4,7 +4,11 @@
 -----------
 #### Adding driver -
 Issue POST request to http://ADDRESS:8080/api/driver/
-The following structure is used
+
+#### Updating driver -
+Issue PUT request to http://ADDRESS:8080/api/driver/
+
+The following structure is used for those requests
 type Driver {
 	Id int
 	Name string
